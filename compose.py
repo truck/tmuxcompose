@@ -33,6 +33,8 @@ def keynamelookup(key):
               'percent':'%',
               'equal':'=',
               'numbersign':'#',
+              'diaeresis':':',
+              'asciitilde':'~',
               'underscore':'_'
     }
     try:
@@ -80,7 +82,7 @@ def utf8keys(input):
             result = breakout(i)
             table[result['stroke']] = result['char']
     try:
-        print(table[input])
+        print(table[input],end='')
     except:
         pass
 
