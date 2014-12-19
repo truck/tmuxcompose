@@ -5,6 +5,7 @@
   Purpose: tmux compose key
   Created: 19/12/14
 """
+from __future__ import print_function
 import sys
 
 #----------------------------------------------------------------------
