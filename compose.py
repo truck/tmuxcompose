@@ -17,7 +17,7 @@ def keynamelookup(key):
               'colon':':',
               'dead_tilde':'~',
               'dead_acute':'´',
-              'apostrophe':"'",
+              'apostrophe':"\''",
               'dead_grave':'`',
               'dead_circumflex':'^',
               'quotedbl':'"',
@@ -25,8 +25,8 @@ def keynamelookup(key):
               'greater':'>',
               'minus':'-',
               'plus':'+',
-              'parenleft':'(',
-              'parenright':')',
+              'parenleft':'[',
+              'parenright':']',
               'slash':"\\",
               'exclam':'!',
               'question':'?',
@@ -36,12 +36,24 @@ def keynamelookup(key):
               'numbersign':'#',
               'diaeresis':':',
               'asciitilde':'~',
+              'dead_currency':'cur',
+              'dead_belowcomma':',',
+              'dead_abovedot':';',
+              'asciicircum':'^^',
+              'bar':'|',
+              'underbar':'_',
+              'dead_abovering':'o',
+              'dead_belowdot':'.',
+              'dead_hook':'hook',
+              'dead_horn':'horn',
+              'dead_macron':'=',
+              'dead_greek':'greek',
               'underscore':'_'
     }
     try:
         return table[key]
     except:
-        return '|null|'
+        return '|null| - ' + key
 
 #----------------------------------------------------------------------
 def breakout(string):
@@ -82,10 +94,19 @@ def utf8keys(input):
         if i.startswith('<'):
             result = breakout(i)
             table[result['stroke']] = result['char']
-    try:
-        print(table[input],end='')
-    except:
-        pass
+    if input == 'dump':
+        a = []
+        ky = table.keys()
+        for i in iter(ky):
+            a.append(i)
+        a.sort()
+        for i in a:
+            print(i,table[i])
+    else:
+        try:
+            print(table[input],end='')
+        except:
+            pass
 
 #----------------------------------------------------------------------
 def main(strokes):
