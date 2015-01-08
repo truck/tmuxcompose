@@ -48,6 +48,7 @@ def keynamelookup(key):
               'dead_horn':'horn',
               'dead_macron':'=',
               'dead_greek':'greek',
+              'dead_ogonek':'og',
               'underscore':'_'
     }
     try:
